@@ -59,3 +59,19 @@ void MainWindow::on_subscript_clicked()
     ui->textEdit->mergeCurrentCharFormat(format);
 }
 
+
+void MainWindow::on_pushButton_clicked()
+{
+    QTextCharFormat format;
+    format.setFontWeight(ui->textEdit->fontWeight());
+
+    QTextCursor cursor(ui->textEdit->textCursor());
+    if (cursor.charFormat().fontWeight() == QFont::Bold) {
+        format.setFontWeight(QFont::Normal);
+    } else {
+        format.setFontWeight(QFont::Bold);
+    }
+    cursor.mergeCharFormat(format);
+    ui->textEdit->mergeCurrentCharFormat(format);
+}
+

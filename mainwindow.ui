@@ -27,7 +27,7 @@
    <widget class="QPushButton" name="aboutMe">
     <property name="geometry">
      <rect>
-      <x>220</x>
+      <x>140</x>
       <y>10</y>
       <width>91</width>
       <height>31</height>
@@ -40,27 +40,52 @@
    <widget class="QPushButton" name="superscript">
     <property name="geometry">
      <rect>
-      <x>120</x>
+      <x>100</x>
       <y>10</y>
-      <width>87</width>
+      <width>31</width>
       <height>31</height>
      </rect>
     </property>
     <property name="text">
-     <string>Superscript</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="icons.qrc">
+      <normaloff>:/icons/superscript.png</normaloff>:/icons/superscript.png</iconset>
     </property>
    </widget>
    <widget class="QPushButton" name="subscript">
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>60</x>
       <y>10</y>
-      <width>87</width>
+      <width>31</width>
       <height>31</height>
      </rect>
     </property>
     <property name="text">
-     <string>Subscript</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="icons.qrc">
+      <normaloff>:/icons/subscript.png</normaloff>:/icons/subscript.png</iconset>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>10</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="icons.qrc">
+      <normaloff>:/icons/bold.png</normaloff>:/icons/bold.png</iconset>
     </property>
    </widget>
   </widget>
@@ -76,6 +101,8 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources/>
+ <resources>
+  <include location="icons.qrc"/>
+ </resources>
  <connections/>
 </ui>
