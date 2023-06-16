@@ -15,6 +15,13 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+    void on_aboutMe_clicked();
+
+    void on_superscript_clicked();
+
+    void on_subscript_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
