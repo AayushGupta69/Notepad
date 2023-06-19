@@ -17,15 +17,19 @@ MainWindow::MainWindow(QWidget *parent)
     QMenu *fileMenu = ui->menubar->addMenu(tr("File"));
 
     QAction *newAction = new QAction(tr("New"), this);
+    newAction->setIcon(QIcon(":/icons/new.png"));
     fileMenu->addAction(newAction);
 
     QAction *openAction = new QAction(tr("Open"), this);
+    openAction->setIcon(QIcon(":/icons/open.png"));
     fileMenu->addAction(openAction);
 
     QAction *saveAction = new QAction(tr("Save"), this);
+    saveAction->setIcon(QIcon(":/icons/save.png"));
     fileMenu->addAction(saveAction);
 
     QAction *exitAction = new QAction(tr("Exit"), this);
+    exitAction->setIcon(QIcon(":/icons/exit.png"));
     fileMenu->addAction(exitAction);
 
     connect(newAction, &QAction::triggered, this, &MainWindow::onNewActionTriggered);
