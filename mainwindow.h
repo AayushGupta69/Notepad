@@ -16,12 +16,13 @@ public:
     ~MainWindow();
 
 private slots:
+    void onNewActionTriggered();
+    void onOpenActionTriggered();
+    void onSaveActionTriggered();
+    void onExitActionTriggered();
     void on_aboutMe_clicked();
-
     void on_superscript_clicked();
-
     void on_subscript_clicked();
-
     void on_pushButton_clicked();
 
 private:

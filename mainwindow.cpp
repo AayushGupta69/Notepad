@@ -1,13 +1,39 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 #include <QMessageBox>
+#include <QMenuBar>
+#include <QMenu>
+#include <QAction>
+#include <QFileDialog>
+#include <QFile>
+#include <QTextStream>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    QMenu *fileMenu = ui->menubar->addMenu(tr("File"));
+
+    QAction *newAction = new QAction(tr("New"), this);
+    fileMenu->addAction(newAction);
+
+    QAction *openAction = new QAction(tr("Open"), this);
+    fileMenu->addAction(openAction);
+
+    QAction *saveAction = new QAction(tr("Save"), this);
+    fileMenu->addAction(saveAction);
+
+    QAction *exitAction = new QAction(tr("Exit"), this);
+    fileMenu->addAction(exitAction);
+
+    connect(newAction, &QAction::triggered, this, &MainWindow::onNewActionTriggered);
+    connect(openAction, &QAction::triggered, this, &MainWindow::onOpenActionTriggered);
+    connect(saveAction, &QAction::triggered, this, &MainWindow::onSaveActionTriggered);
+    connect(exitAction, &QAction::triggered, this, &MainWindow::onExitActionTriggered);
 }
+
 
 MainWindow::~MainWindow()
 {
@@ -75,3 +101,38 @@ void MainWindow::on_pushButton_clicked()
     ui->textEdit->mergeCurrentCharFormat(format);
 }
 
+void MainWindow::onNewActionTriggered()
+{
+    ui->textEdit->clear();
+}
+
+void MainWindow::onOpenActionTriggered()
+{
+    QString filePath = QFileDialog::getOpenFileName(this, tr("Open File"));
+    if (!filePath.isEmpty()) {
+        QFile file(filePath);
+        if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+            QTextStream in(&file);
+            ui->textEdit->setPlainText(in.readAll());
+            file.close();
+        }
+    }
+}
+
+void MainWindow::onSaveActionTriggered()
+{
+    QString filePath = QFileDialog::getSaveFileName(this, tr("Save File"));
+    if (!filePath.isEmpty()) {
+        QFile file(filePath);
+        if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+            QTextStream out(&file);
+            out << ui->textEdit->toPlainText();
+            file.close();
+        }
+    }
+}
+
+void MainWindow::onExitActionTriggered()
+{
+    QApplication::quit();
+}
