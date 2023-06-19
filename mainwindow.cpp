@@ -7,6 +7,8 @@
 #include <QFileDialog>
 #include <QFile>
 #include <QTextStream>
+#include <QClipboard>
+#include <QFontDialog>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -15,6 +17,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     QMenu *fileMenu = ui->menubar->addMenu(tr("File"));
+    QMenu *editMenu = ui->menubar->addMenu(tr("Edit"));
 
     QAction *newAction = new QAction(tr("New"), this);
     newAction->setIcon(QIcon(":/icons/new.png"));
@@ -32,10 +35,46 @@ MainWindow::MainWindow(QWidget *parent)
     exitAction->setIcon(QIcon(":/icons/exit.png"));
     fileMenu->addAction(exitAction);
 
+    QAction *copyAction = new QAction(tr("Copy"), this);
+    copyAction->setIcon(QIcon(":/icons/copy.png"));
+    editMenu->addAction(copyAction);
+
+    QAction *cutAction = new QAction(tr("Cut"), this);
+    cutAction->setIcon(QIcon(":/icons/cut.png"));
+    editMenu->addAction(cutAction);
+
+    QAction *pasteAction = new QAction(tr("Paste"), this);
+    pasteAction->setIcon(QIcon(":/icons/paste.png"));
+    editMenu->addAction(pasteAction);
+
+    editMenu->addSeparator();
+
+    QAction *undoAction = new QAction(tr("Undo"), this);
+    undoAction->setIcon(QIcon(":/icons/edit_undo.png"));
+    editMenu->addAction(undoAction);
+
+    QAction *redoAction = new QAction(tr("Redo"), this);
+    redoAction->setIcon(QIcon(":/icons/edit_redo.png"));
+    editMenu->addAction(redoAction);
+
+    editMenu->addSeparator();
+
+    QAction *fontAction = new QAction(tr("Font"), this);
+    fontAction->setIcon(QIcon(":/icons/font.png"));
+    editMenu->addAction(fontAction);
+
     connect(newAction, &QAction::triggered, this, &MainWindow::onNewActionTriggered);
     connect(openAction, &QAction::triggered, this, &MainWindow::onOpenActionTriggered);
     connect(saveAction, &QAction::triggered, this, &MainWindow::onSaveActionTriggered);
     connect(exitAction, &QAction::triggered, this, &MainWindow::onExitActionTriggered);
+
+
+    connect(copyAction, &QAction::triggered, this, &MainWindow::onCopyActionTriggered);
+    connect(cutAction, &QAction::triggered, this, &MainWindow::onCutActionTriggered);
+    connect(pasteAction, &QAction::triggered, this, &MainWindow::onPasteActionTriggered);
+    connect(undoAction, &QAction::triggered, this, &MainWindow::onUndoActionTriggered);
+    connect(redoAction, &QAction::triggered, this, &MainWindow::onRedoActionTriggered);
+    connect(fontAction, &QAction::triggered, this, &MainWindow::onFontActionTriggered);
 }
 
 
@@ -139,4 +178,39 @@ void MainWindow::onSaveActionTriggered()
 void MainWindow::onExitActionTriggered()
 {
     QApplication::quit();
+}
+
+void MainWindow::onCopyActionTriggered()
+{
+    QApplication::clipboard()->setText(ui->textEdit->textCursor().selectedText());
+}
+
+void MainWindow::onCutActionTriggered()
+{
+    QApplication::clipboard()->setText(ui->textEdit->textCursor().selectedText());
+    ui->textEdit->textCursor().removeSelectedText();
+}
+
+void MainWindow::onPasteActionTriggered()
+{
+    ui->textEdit->insertPlainText(QApplication::clipboard()->text());
+}
+
+void MainWindow::onUndoActionTriggered()
+{
+    ui->textEdit->undo();
+}
+
+void MainWindow::onRedoActionTriggered()
+{
+    ui->textEdit->redo();
+}
+
+void MainWindow::onFontActionTriggered()
+{
+    bool ok;
+    QFont font = QFontDialog::getFont(&ok, ui->textEdit->font(), this);
+    if (ok) {
+        ui->textEdit->setFont(font);
+    }
 }

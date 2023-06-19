@@ -20,12 +20,18 @@ private slots:
     void onOpenActionTriggered();
     void onSaveActionTriggered();
     void onExitActionTriggered();
+    void onCopyActionTriggered();
+    void onCutActionTriggered();
+    void onPasteActionTriggered();
+    void onUndoActionTriggered();
+    void onRedoActionTriggered();
+    void onFontActionTriggered();
     void on_aboutMe_clicked();
     void on_superscript_clicked();
     void on_subscript_clicked();
     void on_pushButton_clicked();
-
 private:
     Ui::MainWindow *ui;
+
 };
 #endif // MAINWINDOW_H
