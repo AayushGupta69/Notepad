@@ -26,10 +26,13 @@ private slots:
     void onUndoActionTriggered();
     void onRedoActionTriggered();
     void onFontActionTriggered();
-    void on_aboutMe_clicked();
-    void on_superscript_clicked();
-    void on_subscript_clicked();
-    void on_pushButton_clicked();
+    void on_boldButton_clicked();
+    void on_subscriptButton_clicked();
+    void on_superscriptButton_clicked();
+    void on_aboutMeButton_clicked();
+    void on_italicButton_clicked();
+    void on_underlineButton_clicked();
+
 private:
     Ui::MainWindow *ui;
 

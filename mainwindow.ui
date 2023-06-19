@@ -24,10 +24,10 @@
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="aboutMe">
+   <widget class="QPushButton" name="aboutMeButton">
     <property name="geometry">
      <rect>
-      <x>140</x>
+      <x>220</x>
       <y>10</y>
       <width>91</width>
       <height>31</height>
@@ -36,11 +36,15 @@
     <property name="text">
      <string>About Me</string>
     </property>
+    <property name="icon">
+     <iconset resource="icons.qrc">
+      <normaloff>:/icons/info.png</normaloff>:/icons/info.png</iconset>
+    </property>
    </widget>
-   <widget class="QPushButton" name="superscript">
+   <widget class="QPushButton" name="superscriptButton">
     <property name="geometry">
      <rect>
-      <x>100</x>
+      <x>180</x>
       <y>10</y>
       <width>31</width>
       <height>31</height>
@@ -54,10 +58,10 @@
       <normaloff>:/icons/superscript.png</normaloff>:/icons/superscript.png</iconset>
     </property>
    </widget>
-   <widget class="QPushButton" name="subscript">
+   <widget class="QPushButton" name="subscriptButton">
     <property name="geometry">
      <rect>
-      <x>60</x>
+      <x>140</x>
       <y>10</y>
       <width>31</width>
       <height>31</height>
@@ -71,7 +75,7 @@
       <normaloff>:/icons/subscript.png</normaloff>:/icons/subscript.png</iconset>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="boldButton">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -86,6 +90,40 @@
     <property name="icon">
      <iconset resource="icons.qrc">
       <normaloff>:/icons/bold.png</normaloff>:/icons/bold.png</iconset>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="italicButton">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>10</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="icons.qrc">
+      <normaloff>:/icons/italic.png</normaloff>:/icons/italic.png</iconset>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="underlineButton">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>10</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="icons.qrc">
+      <normaloff>:/icons/underline.png</normaloff>:/icons/underline.png</iconset>
     </property>
    </widget>
   </widget>
