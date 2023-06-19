@@ -89,7 +89,6 @@ void MainWindow::on_aboutMe_clicked()
     QString resume;
     resume += "<b>Name:</b> Aayush Gupta<br><br>";
     resume += "<b>Email:</b> aayushguptaworks@gmail.com<br>";
-    resume += "<b>Mob:</b> 9310297267<br>";
     resume += "<b>Education:</b> B.Tech in Computer Science and Engineering from Dronacharya College of Engineering, Gurugram. (CGPA: 7.7)<br>";
     resume += "<b>GitHub:</b> <a href=\"https://github.com/AayushGupta69\">https://github.com/AayushGupta69</a><br>";
     resume += "<b>Skills:</b><br>C, C++, Python, Linux, Git, GitHub, Build Automation<br>";
