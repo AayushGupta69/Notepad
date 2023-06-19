@@ -31,7 +31,7 @@ The notepad app has been developed with the following features:
     • Underline: Applies underline formatting to the selected text.
 
     4. About Me button: 
-    • Displays the resume information of the developer in a dialog box.
+    • Displays my resume in a dialog box.
 
 # Issues and Challenges
 
@@ -49,4 +49,4 @@ The implemented features of the notepad app include:
     • Edit menu options for copying, cutting, pasting, undoing, and redoing text operations.
     • Font dialog for selecting different font settings.
     • Formatting buttons for applying bold, italic, and underline styles to the selected text.
-    • "About Me" button that displays the developer's resume information in a dialog box.
+    • "About Me" button that displays my resume in a dialog box.
